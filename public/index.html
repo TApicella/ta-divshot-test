@@ -29,6 +29,13 @@
             alert(snapshot.val()); 
           }
         });
+        alert("Incrementing visits");
+        fbRef.child("visits").once('value',function(snapshot){
+          var count = snapshot.val()
+          count = count+1;
+          fbRef.update({visits:count});
+        });
+        
         /* 
         var myDataRef = new Firebase('https://ta-divshot-test.firebaseio.com/');
         myDataRef.child("visits").once('value', function(snapshot) {
@@ -50,8 +57,7 @@
         //$('#visitCount').text(visits);
       });
     </script>
-    <h1>Testing Firebase take 10: checking if visits exists and 
-initializing</h1>
+    <h1>Testing Firebase take 11: incrementing visits</h1>
     Number of visits= <div id='visitCount'></div>
   </body>
 </html> 
