@@ -5,25 +5,29 @@
   </head>
   <body>
     <script>
-      $(document).ready(function(){  
+      $(document).ready(function(){
+        alert("Starting script");  
         var myDataRef = new Firebase('https://ta-divshot-test.firebaseio.com/');
         myDataRef.child("visits").once('value', function(snapshot) {
           var exists = (snapshot.val() !== null);
+          
           if(!exists){
             myDataRef.set({"visits":0});
           } 
         }
+        /*
         var visits;
-        myDataRef.child("visits").on("value", function(snapshot) {
+        myDataRef.child("visits").once("value", function(snapshot) {
           visits = snapshot.val();
           newvisits = visits+1
           alert(visits);
           myDataRef.update({"visits": newvisits});
-        });
+        }); 
+        */
         //$('#visitCount').text(visits);
       });
     </script>
-    <h1>Testing Firebase take 5: data initialization and revision</h1>
+    <h1>Testing Firebase take 6: data initialization</h1>
     Number of visits= <div id='visitCount'></div>
   </body>
 </html> 
