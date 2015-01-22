@@ -12,12 +12,12 @@
           visits = snapshot.val();
           newvisits = visits+1
           alert(visits);
-          myDataRef.set({value: newvisits});
+          myDataRef.set({"value": newvisits});
         });
         //$('#visitCount').text(visits);
       });
     </script>
-    <h1>Testing Firebase take 3: verifying data revision</h1>
+    <h1>Testing Firebase take 4: verifying data revision</h1>
     Number of visits= <div id='visitCount'></div>
   </body>
 </html> 
