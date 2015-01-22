@@ -9,7 +9,22 @@
         alert("Starting script");
         alert("Checking FB connection");
         var fbRef = new Firebase('https://ta-divshot-test.firebaseio.com/');  
-        alert(fbRef == null);
+        if(fbRef != null){
+          alert("FB found");
+        }
+        else{ 
+          alert("FB null");
+        }
+
+        alert("Testing if visits exists");
+        fbRef.child("visits").once('value', function(snapshot){
+          var exists = (snapshot.val() !== null);
+          if(exists){
+            alert("Visits does not exist");
+          }
+          else{
+            alert("Visits exists"); 
+          }
         /* 
         var myDataRef = new Firebase('https://ta-divshot-test.firebaseio.com/');
         myDataRef.child("visits").once('value', function(snapshot) {
@@ -31,7 +46,7 @@
         //$('#visitCount').text(visits);
       });
     </script>
-    <h1>Testing Firebase take 8: checking connection</h1>
+    <h1>Testing Firebase take 9: checking if visits exists</h1>
     Number of visits= <div id='visitCount'></div>
   </body>
 </html> 
