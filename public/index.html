@@ -6,7 +6,10 @@
   <body>
     <script>
       $(document).ready(function(){
-        alert("Starting script");  
+        alert("Starting script");
+        alert("Checking FB connection");
+        var fbRef = new Firebase('https://ta-divshot-test.firebaseio.com/');  
+        alert(fbRef == null);
         /* 
         var myDataRef = new Firebase('https://ta-divshot-test.firebaseio.com/');
         myDataRef.child("visits").once('value', function(snapshot) {
@@ -28,7 +31,7 @@
         //$('#visitCount').text(visits);
       });
     </script>
-    <h1>Testing Firebase take 7: jquery ready issues</h1>
+    <h1>Testing Firebase take 8: checking connection</h1>
     Number of visits= <div id='visitCount'></div>
   </body>
 </html> 
