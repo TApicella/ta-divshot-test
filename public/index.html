@@ -21,22 +21,24 @@
           var exists = (snapshot.val() !== null);
           if(!exists){
             alert("Visits does not exist");
-            alert("Adding visits"); 
+            alert("Adding visits field"); 
             fbRef.set({visits: 0});
+			$('#visitCount').text("0");
           }
           else{
             alert("Visits exists");
-            alert(snapshot.val());
+            $('#visitCount').text(visits);		
             alert("Incrementing visits");
             var count = snapshot.val()
             count = count+1;
-            fbRef.update({visits:count});			
+            fbRef.update({visits:count});
+				
           }
         });
-        //$('#visitCount').text(visits);
+        //
       });
     </script>
-    <h1>Testing Firebase take 12: incrementing visits within callback</h1>
+    <h1>Testing Firebase take 13: display visits</h1>
     Number of visits= <div id='visitCount'></div>
   </body>
 </html> 
