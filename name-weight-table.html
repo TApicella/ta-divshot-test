@@ -1,12 +1,18 @@
 <link rel="import"
       href="/bower_components/polymer/polymer.html">
 
-<polymer-element name="editable-color-picker" attributes="owner color">
+<polymer-element name="name-weight-table" attributes="header0 header1">
   <template>
     <table id="coreTable">
-	   <tr><th>{{header0}}</th><th>{{header1}}</th></tr>
+	   <tr>
+	     <th>{{header0}}</th>
+		  <th>{{header1}}</th>
+		</tr>
 	   <template repeat="{{r in myrows}}">
-		  <tr><td>{{r.name}}</td><td>{{r.weight}}</td></tr>
+		  <tr>
+		    <td>{{r.name}}</td>
+			 <td>{{r.weight}}</td>
+		  </tr>
 		</template>
 	 </table>
   </template>
