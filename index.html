@@ -45,7 +45,7 @@
         });
       });
     </script>
-    <h1>Testing Polymer take 4: sum of weights</h1>
+    <h1>Testing Polymer take 5: firebase-element</h1>
     Number of visits= <div id='visitCount'></div>
 	 <div>Sanity check: here's the color picker</div>
     <editable-color-picker></editable-color-picker>
@@ -55,7 +55,7 @@
 	 <name-weight-table></name-weight-table>
          <br/>
          <div>Testing firebase-element</div>
-         <template>
+         <template is="auto-binding">
            <firebase-element id="base" location="https://ta-divshot-test.firebaseio.com/" data="{{data}}" 
 keys="{{keys}}"</firebase-element>
          <h3>Remote data</h3>
