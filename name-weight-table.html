@@ -15,6 +15,7 @@
 		  </tr>
 		</template>
 	 </table>
+  <button on-click="{{addRow}}">Add a new row</button>
   </template>
   <script>
     Polymer({
@@ -23,7 +24,10 @@
 	  myrows: [
 	    {name:"Alice", weight:"50"},
 		{name:"Bob", weight:"50"}
-	  ]
+	  ],
+	  addRow: function(){
+	    this.myrows.push({name:"ROBOT", weight:"100"});
+	  }
     });
   </script>
 </polymer-element>
