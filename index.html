@@ -1,22 +1,44 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My Divshot Application</title>
+  <head>
+    <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function(){
+        alert("Starting script");
+        alert("Checking FB connection");
+        var fbRef = new Firebase('https://ta-divshot-test.firebaseio.com/');  
+        if(fbRef != null){
+          alert("FB found");
+        }
+        else{ 
+          alert("FB null");
+        }
 
-  <style>
-    body{
-      font:500 14px/21px 'Helvetica Neue', Helvetica, Arials;
-      padding:40px;
-    }
-  </style>
-
-</head>
-<body>
-  <h1>Welcome to Divshot Hosting!</h1>
-  <p>Make something static!</p>
-  <h2>Should there be something here?</h2>
-  <p><a href="mailto:support@divshot.com">Get Help via Email</a> or <a href="http://docs.divshot.com/guides/common-deploy-issues">Common Deploy Issues Documentation</a></p>
-</body>
-</html>
+        alert("Testing if visits exists");
+        fbRef.child("visits").once('value', function(snapshot){
+          var exists = (snapshot.val() !== null);
+          if(!exists){
+            alert("Visits does not exist");
+            alert("Adding visits field"); 
+            fbRef.set({visits: 0});
+			$('#visitCount').text("0");
+          }
+          else{
+            alert("Visits exists");
+            $('#visitCount').text(snapshot.val());		
+            alert("Incrementing visits");
+            var count = snapshot.val()
+            count = count+1;
+            fbRef.update({visits:count});
+				
+          }
+        });
+        //
+      });
+    </script>
+    <h1>Testing Firebase take 13: display visits</h1>
+    Number of visits= <div id='visitCount'></div>
+  </body>
+</html> 

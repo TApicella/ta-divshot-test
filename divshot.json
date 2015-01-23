@@ -1,6 +1,6 @@
 {
   "name": "ta-divshot-test",
-  "root": "./public",
+  "root": ".",
   "clean_urls": true,
   "error_page": "error.html"
 }

@@ -1,0 +1,20 @@
+{
+  "name": "ta-divshot-test",
+  "version": "0.0.0",
+  "homepage": "https://github.com/TApicella/ta-divshot-test",
+  "authors": [
+    "TApicella <tapicella.ms@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.3"
+  }
+}
