@@ -16,18 +16,27 @@
 		</template>
 	 </table>
   <button on-click="{{addRow}}">Add a new row</button>
+  <button on-click="{{sumWeights}}">Alert the sum of all weights</button>
   </template>
   <script>
     Polymer({
       header0: "Name",
       header1: "Weight",
 	  myrows: [
-	    {name:"Alice", weight:"50"},
-		{name:"Bob", weight:"50"}
+	    {name:"Alice", weight:50},
+		{name:"Bob", weight:50}
 	  ],
 	  addRow: function(){
-	    this.myrows.push({name:"ROBOT", weight:"100"});
-	  }
+	    this.myrows.push({name:"ROBOT", weight:100});
+	  },
+	  sumWeights: function(){
+	    var sum = 0;
+		var i;
+		for(i = 0; i < this.myrows.length; i++){
+		  sum = sum + myrows[i].weight;
+		}
+		alert("The sum of all weights is "+sum);
+	 } 
     });
   </script>
 </polymer-element>
