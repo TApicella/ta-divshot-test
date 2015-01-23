@@ -26,38 +26,17 @@
           }
           else{
             alert("Visits exists");
-            alert(snapshot.val()); 
+            alert(snapshot.val());
+            alert("Incrementing visits");
+            var count = snapshot.val()
+            count = count+1;
+            fbRef.update({visits:count});			
           }
         });
-        alert("Incrementing visits");
-        fbRef.child("visits").once('value',function(snapshot){
-          var count = snapshot.val()
-          count = count+1;
-          fbRef.update({visits:count});
-        });
-        
-        /* 
-        var myDataRef = new Firebase('https://ta-divshot-test.firebaseio.com/');
-        myDataRef.child("visits").once('value', function(snapshot) {
-          var exists = (snapshot.val() !== null);
-          
-          if(!exists){
-            myDataRef.set({"visits":0});
-          } 
-        }*/
-        /*
-        var visits;
-        myDataRef.child("visits").once("value", function(snapshot) {
-          visits = snapshot.val();
-          newvisits = visits+1
-          alert(visits);
-          myDataRef.update({"visits": newvisits});
-        }); 
-        */
         //$('#visitCount').text(visits);
       });
     </script>
-    <h1>Testing Firebase take 11: incrementing visits</h1>
+    <h1>Testing Firebase take 12: incrementing visits within callback</h1>
     Number of visits= <div id='visitCount'></div>
   </body>
 </html> 
