@@ -4,12 +4,15 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 	 <link rel="import" href="editable-color-picker.html">
+	 <link rel="import" href="name-weight-table.html">
   </head>
   <body>
     
     <script>
       $(document).ready(function(){
-        alert("Starting script");
+        //FB testing code
+		/*
+		alert("Starting script");
         alert("Checking FB connection");
         var fbRef = new Firebase('https://ta-divshot-test.firebaseio.com/');  
         if(fbRef != null){
@@ -18,31 +21,36 @@
         else{ 
           alert("FB null");
         }
+		*/
 
-        alert("Testing if visits exists");
+        //alert("Testing if visits exists");
         fbRef.child("visits").once('value', function(snapshot){
           var exists = (snapshot.val() !== null);
           if(!exists){
-            alert("Visits does not exist");
-            alert("Adding visits field"); 
+            //alert("Visits does not exist");
+            //alert("Adding visits field"); 
             fbRef.set({visits: 0});
 			$('#visitCount').text("0");
           }
           else{
-            alert("Visits exists");
+            //alert("Visits exists");
             $('#visitCount').text(snapshot.val());		
-            alert("Incrementing visits");
+            //alert("Incrementing visits");
             var count = snapshot.val()
             count = count+1;
             fbRef.update({visits:count});
 				
           }
         });
-        //
       });
     </script>
-    <h1>Testing Polymer take 1: display color picker</h1>
+    <h1>Testing Polymer take 2: custom name weight table</h1>
     Number of visits= <div id='visitCount'></div>
+	 <div>Sanity check: here's the color picker</div>
     <editable-color-picker></editable-color-picker>
+	 <br/>
+	 <div>Now here's my table</div>
+	 <br/>
+	 <name-weight-table></name-weight-table>
   </body>
 </html> 
