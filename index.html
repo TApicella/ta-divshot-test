@@ -2,8 +2,10 @@
   <head>
     <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   </head>
   <body>
+    
     <script>
       $(document).ready(function(){
         alert("Starting script");
@@ -38,7 +40,8 @@
         //
       });
     </script>
-    <h1>Testing Firebase take 13: display visits</h1>
+    <h1>Testing Polymer take 1: display color picker</h1>
     Number of visits= <div id='visitCount'></div>
+    <editable-color-picker></editable-color-picker>
   </body>
 </html> 
